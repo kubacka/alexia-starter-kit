@@ -4,6 +4,8 @@
   "description": "Starter kit project with sample Amazon Echo skill created using Alexia Framework",
   "main": "src/app.js",
   "scripts": {
+    "deploy": "serverless deploy",
+    "lambci-build": "npm run lint && npm run test && npm run deploy",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "test": "istanbul cover node_modules/mocha/bin/_mocha -- --opts .mocharc",
@@ -13,6 +15,9 @@
     "mon": "nodemon --exec \"node server/start-http-server.js\"",
     "deploy": "serverless deploy",
     "gen": "node bin/generate.js"
+  },
+  "lambci": {
+    "cmd": "npm install && npm run lambci-build"
   },
   "author": "",
   "license": "Apache-2.0",
